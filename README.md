@@ -19,13 +19,34 @@ console.log(add('2','3'));
 2. `string` - 'hi', "hi", ``hi``
 3. `boolean` - true, false
 4. `object` - {age: 30}
-5. `array` - type of values in arrays can be *flexible or strict* - [1 ,2 3]
-6. `any` - Elements within an array can be any type - `activities: any[]` 
+5. `array` - type of values in arrays can be *flexible or strict* - `[1, 2, 3]`
+6. `any` - Elements within an array can be any type - `activities: any[]`. Not recommended for most cases.  
+7. `tuple` - Elements in tuple are fixed length and type - `[2, 'author']`
+* With tuples TypeScript sets the possible types of it to the type above as `string | number` therefore, incorrect entries can be made. To resolve this, the type can be explicitly defined. E.g. `role: [number, string]`. However, incorrect types can be inserted using `push`
+8. `enum` - Access identifier that is not a string - `enum Role { ADMIN, AUTHOR }`
 * `typeof` method (dynamic type) can be used alongside TypeScript (static type) to validate dynamically changing values
 ```
 if (typeof '10' !== 'number'){
     throw new Error("Invalid entry);
 }
+```
+* Unions can be used alongside types to allow parameters to be accepted as multiple types. E.g. `input 1: number | string | boolean`
+To achieve this, type check can be done during runtime using `typeof` to resolve the variable types: 
+```
+function combine(input1: number | string, input2: number | string){
+    let result;
+    if (typeof input1 === 'number' && typeof input2 === 'number'){
+        result = input1 + input2;
+    } else {
+        result = input1.toString() + " " + input2.toString();
+    } 
+    return result;
+}
+
+console.log(combine(30, 20)); 
+> 50
+console.log(combine('Hello', 'World!'));
+> Hello World!
 ```
 
 ### Type inference
