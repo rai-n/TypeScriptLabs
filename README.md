@@ -24,6 +24,19 @@ console.log(add('2','3'));
 7. `tuple` - Elements in tuple are fixed length and type - `[2, 'author']`
 * With tuples TypeScript sets the possible types of it to the type above as `string | number` therefore, incorrect entries can be made. To resolve this, the type can be explicitly defined. E.g. `role: [number, string]`. However, incorrect types can be inserted using `push`
 8. `enum` - Access identifier that is not a string - `enum Role { ADMIN, AUTHOR }`
+9. `literal` - Literal types are specific types. E.g. `conversion: 'ft' | 'cm'`. Literal type can be combined with union pipe to allow only two types for a value.
+10. `type` - Type alias can group multiple types as one.
+```
+type conversion = 'ft' | 'cm'; 
+type text = number | string;
+```
+* Complex objects can be defined using custom types which reduce code repetition. 
+```
+type User = {name : string, greeting: string};
+const user : User = {name:  "Neer", greeting: "Hello" };
+const greet = (user : User) => console.log(user.greeting); 
+```
+
 * `typeof` method (dynamic type) can be used alongside TypeScript (static type) to validate dynamically changing values
 ```
 if (typeof '10' !== 'number'){
