@@ -23,13 +23,8 @@ const person : {
     age: 23
 };
 
-
-
 console.log(person.name);
 
-
 // School property does not exist and an error is flagged during development 
-```
-Property 'school' does not exist on type '{ name: string; age: number; }'.ts(2339)
-```
+//Property 'school' does not exist on type '{ name: string; age: number; }'.ts(2339)
 // console.log(person.school);

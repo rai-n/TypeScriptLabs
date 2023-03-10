@@ -48,6 +48,8 @@ For specificity, function parameter and return type can also be set.
 ```
 let addNumbers : (a: number, b: number) => number;
 ```
+12. `unknown` - Type can be set to any type. Type declaration cannot be set from a known to `unknown` type without checking `typeof` during runtime. 
+13. `never` - Type typically used for error handling. For cases where you want to semantically declare that a function will never resolve a return type.
 * `typeof` method (dynamic type) can be used alongside TypeScript (static type) to validate dynamically changing values
 ```
 if (typeof '10' !== 'number'){
