@@ -115,3 +115,17 @@ const add = (num1 : number, num2: number) : number => num1 + num2;
 ```
 * Return type `: undefined` - `return;` used. 
 * Return type `: void` - No `return` value used.
+
+### Function callbacks
+Function callbacks return types can also be defined as follows. 
+```
+const addLog = (num1 : number, num2: number, callback : (res : number) => void) : void => {
+    const sum = num1 + num2; 
+    callback(sum);
+}
+
+addLog(100, 20, (res) => {
+    console.log(res);
+});
+
+```
